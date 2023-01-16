@@ -10,6 +10,7 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import { NavLink, StyledText } from './styledComponents';
 
 const pages = ['About', 'Videos', 'Recipes', 'Contact', 'Support'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -37,65 +38,56 @@ const Nav = () => {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Box
-            component="img"
-            sx={{
-              height: 60,
-            }}
-            alt="MTKC logo"
-            src="/MTKClogo.jpg"
-          />
           <Typography
-            variant="h6"
-            noWrap
             component="a"
             href="/"
+            noWrap
             sx={{
-              ml: 1,
-              mr: 5,
-              display: { xs: 'none', md: 'flex' },
+              color: 'inherit',
+              display: { md: 'flex', xs: 'none' },
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'inherit',
+              ml: 1,
+              mr: 5,
               textDecoration: 'none',
             }}
+            variant="h6"
           >
             MTKC
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ display: { md: 'none', xs: 'flex' }, flexGrow: 1 }}>
             <IconButton
-              size="large"
-              aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
-              onClick={handleOpenNavMenu}
+              aria-label="account of current user"
               color="inherit"
+              onClick={handleOpenNavMenu}
+              size="large"
             >
               <MenuIcon />
             </IconButton>
             <Menu
-              id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
+                horizontal: 'left',
                 vertical: 'bottom',
-                horizontal: 'left',
               }}
+              id="menu-appbar"
               keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
+              open={Boolean(anchorElNav)}
+              sx={{ display: { md: 'none', xs: 'block' } }}
+              transformOrigin={{
+                horizontal: 'left',
+                vertical: 'top',
               }}
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography
+                    color='inherit'
                     component="a"
                     href={`/${page}`}
                     textAlign="center"
@@ -106,66 +98,58 @@ const Nav = () => {
               ))}
             </Menu>
           </Box>
-          <Typography
-            variant="h5"
-            noWrap
+          <StyledText
             component="a"
             href="/home"
+            noWrap
             sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
+              display: { md: 'none', xs: 'flex' },
+              letterSpacing: '0.3rem',
             }}
+            variant="h5"
           >
             MTKC
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          </StyledText>
+          <Box sx={{ display: { md: 'flex', xs: 'none' }, flexGrow: 1 }}>
             {pages.map((page) => (
-              <Button
-                key={page}
+              <NavLink
+                color='secondary'
                 component="a"
                 href={`/${page}`}
+                key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}
-              </Button>
+              </NavLink>
             ))}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open links">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Box
-                  component="img"
-                  sx={{
-                    height: 42,
-                  }}
+                {/* <Box
                   alt="MTKC logo"
+                  component="img"
                   src="/MTKClogo.jpg"
-                />
+                  sx={{ height: 42 }}
+                /> */}
               </IconButton>
             </Tooltip>
             <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
-                vertical: 'top',
                 horizontal: 'right',
+                vertical: 'top',
               }}
+              id="menu-appbar"
               keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
+              open={Boolean(anchorElUser)}
+              sx={{ mt: '45px' }}
+              transformOrigin={{
+                horizontal: 'right',
+                vertical: 'top',
+              }}
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
@@ -174,6 +158,12 @@ const Nav = () => {
               ))}
             </Menu>
           </Box>
+          <Box
+            alt="MTKC logo"
+            component="img"
+            src="/MTKClogo.png"
+            sx={{ height: 80 }}
+          />
         </Toolbar>
       </Container>
     </AppBar>

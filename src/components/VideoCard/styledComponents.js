@@ -1,43 +1,54 @@
-import { Button, CardMedia } from '@mui/material';
+import {
+  Button,
+  CardContent,
+  CardHeader,
+  CardMedia,
+} from '@mui/material';
+
 import styled from 'styled-components';
 
 export const StyledCardMedia = styled(CardMedia)`
-  text-align: center;
-  max-width: 15.9rem;
-  height: 28.4rem;
   border: none;
-  border-radius: 1.5rem;
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.15);
-  overflow: hidden;
-  margin-bottom: 0.5rem;
-`;
-
-export const VideoContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 3rem;
+  height: 28.4rem;
+  max-width: 15.9rem;
+  text-align: center;
 `;
 
 export const StyledCard = styled.div`
-  display: flex;
+  background-color: ${({ theme }) => theme.palette.primary.main};
   align-items: center;
-  justify-content: space-between;
-  // text-align: center;
-  height: 6rem;
-  width: 18rem;
-  padding: 1rem;
-  background-color: #f5f5f5;
+  border-radius: 0 0 1.5rem 1.5rem;
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
-  border-radius: 1.5rem;
+  display: flex;
+  height: 7rem;
+  justify-content: space-between;
+  padding: 1rem;
+  width: 15.9rem;
 `;
 
+export const StyledCardContent = styled(CardContent)`
+  display: flex;
+  justify-content: center;
+  background-color: ${({ theme }) => theme.palette.primary.main};
+`;
+
+export const StyledCardHeader = styled(CardHeader)`
+  background-color: ${({ theme }) => theme.palette.primary.main};
+  font-size: 1.2rem;
+  font-weight: 700;
+  height: 5rem;
+  letter-spacing: 0.15rem;
+  line-height: 1.7rem;
+  text-align: center;
+`;
+
+
 export const StyledLink = styled(Button)`
-  background-color: #495fa6;
-  max-width: 5rem;
+  width: 7rem;
+
   &:hover {
-    color: #ccc;
+    color: ${({ theme }) => theme.palette.primary.main};
     cursor: pointer;
     text-decoration: none;
   }
@@ -46,4 +57,11 @@ export const StyledLink = styled(Button)`
 export const StyledTitle = styled.h3`
   font-size: 1.2rem;
   margin-right: 1.5rem;
+`;
+
+export const VideoContainer = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;

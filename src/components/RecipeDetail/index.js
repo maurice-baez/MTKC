@@ -1,9 +1,10 @@
 import React from 'react';
+import T from 'prop-types';
 import { unCamelCase } from '../../helpers/helpers';
 import {
+  StyledRecipeContainer,
   StyledRecipeHeader,
   StyledRecipeText,
-  StyledRecipeContainer,
 } from './styledComponents';
 
 export const RecipeDetail = ({ type }) => {
@@ -16,3 +17,5 @@ export const RecipeDetail = ({ type }) => {
     </StyledRecipeContainer>
   );
 };
+
+RecipeDetail.propTypes = { type: T.string.isRequired };

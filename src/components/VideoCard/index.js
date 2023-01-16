@@ -1,39 +1,71 @@
 import * as React from 'react';
-import { useLocation } from 'react-router-dom';
-import ConditionalRender from '../../helpers/ConditionalRender';
-import { unCamelCase } from '../../helpers/helpers';
+import T from 'prop-types';
+
+import { Card } from '@mui/material';
 import {
-  StyledCard,
+  StyledCardContent,
+  StyledCardHeader,
   StyledCardMedia,
   StyledLink,
-  StyledTitle,
   VideoContainer,
 } from './styledComponents';
+import { useLocation } from 'react-router-dom';
+import { unCamelCase } from '../../helpers/helpers';
+import ConditionalRender from '../../helpers/ConditionalRender';
+import LoadingCard from './LoadingCard';
 
-export default function VideoCard({ src, title }) {
+export default function VideoCard({
+  needsMarginTop,
+  src,
+  title,
+}) {
   const { pathname } = useLocation();
   const formattedTitle = unCamelCase(title);
+  const [hasVideoLoaded, setHasVideoLoaded] = React.useState(false);
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setHasVideoLoaded(true);
+    }, 5000);
+  }, []);
 
   return (
-    <VideoContainer>
-      <StyledCardMedia
-        component="iframe"
-        scrolling="no"
-        allowFullScreen
-        src={src}
-        alt={title}
-      />
-      <ConditionalRender
-        Component={
-          <StyledCard>
-            <StyledTitle>{formattedTitle}</StyledTitle>
-            <StyledLink href={`/recipes/${title}`} variant="contained">
+    <VideoContainer $needsMarginTop={needsMarginTop}>
+      <Card sx={{ borderRadius: '1rem', maxWidth: '15.9rem' }}>
+        <StyledCardHeader disableTypography title={formattedTitle} />
+        <ConditionalRender
+          Component={(
+            <StyledCardMedia
+              allowFullScreen
+              alt={title}
+              component="iframe"
+              // scrolling="no"
+              src={src}
+            />
+          )}
+          FallbackComponent={<LoadingCard />}
+          shouldRender={hasVideoLoaded}
+        />
+        <StyledCardContent>
+          <ConditionalRender
+            Component={
+              <StyledLink
+                color='secondary'
+                href={`/recipes/${title}`}
+                variant="contained">
               Recipe
-            </StyledLink>
-          </StyledCard>
-        }
-        shouldRender={!pathname.includes('recipes')}
-      />
+              </StyledLink>
+            }
+            shouldRender={!pathname.includes('recipes')}
+          />
+        </StyledCardContent>
+      </Card>
     </VideoContainer>
   );
 }
+
+VideoCard.propTypes = {
+  needsMarginTop: T.bool,
+  src: T.string.isRequired,
+  title: T.string.isRequired,
+};

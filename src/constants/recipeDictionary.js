@@ -1,11 +1,11 @@
 export const recipeDictionary = {
-  crispySkinHoneySalmon: '',
+  aracini: '',
   cherryBalsamicReduction: '',
   crema: '',
-  polpetteDiPane: '',
-  fritattaDiPatate: '',
-  aracini: '',
-  pastaBolognese: '',
-  eggplantRisotto: '',
+  crispySkinHoneySalmon: '',
   eggplantPuree: '',
+  eggplantRisotto: '',
+  fritattaDiPatate: '',
+  pastaBolognese: '',
+  polpetteDiPane: '',
 };

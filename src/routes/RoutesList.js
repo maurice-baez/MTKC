@@ -1,6 +1,11 @@
 import React from 'react';
 
-import { Routes, Route, Navigate, BrowserRouter } from 'react-router-dom';
+import {
+  BrowserRouter,
+  Navigate,
+  Route,
+  Routes,
+} from 'react-router-dom';
 import { AboutScreen } from '../pages/AboutScreen';
 import { Blog } from '../pages/Blog';
 import { Contact } from '../pages/Contact';
@@ -14,24 +19,22 @@ import { Videos } from '../pages/Videos';
  * Visiting a non-existent route navigates to the homepage.
  */
 
-export const RoutesList = () => {
-  return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutScreen />} />
-          <Route path="/videos" element={<Videos />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/support" element={<Support />} />
-          <Route path="/recipes/:id" element={<Recipe />} />
+export const RoutesList = () => (
+  <>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Home />} path="/" />
+        <Route element={<AboutScreen />} path="/about" />
+        <Route element={<Videos />} path="/videos" />
+        <Route element={<Blog />} path="/blog" />
+        <Route element={<Contact />} path="/contact" />
+        <Route element={<Support />} path="/support" />
+        <Route element={<Recipe />} path="/recipes/:id" />
 
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
-      </BrowserRouter>
-    </>
-  );
-};
+        <Route element={<Navigate to="/" />} path="*" />
+      </Routes>
+    </BrowserRouter>
+  </>
+);
 
 export default RoutesList;

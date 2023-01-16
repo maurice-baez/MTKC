@@ -1,7 +1,4 @@
-import React, { Fragment } from 'react';
-import { Typography } from '@mui/material';
+import React from 'react';
 import { ContactForm } from '../components/Contact/ContactForm';
 
-export const Contact = () => {
-  return <ContactForm />;
-};
+export const Contact = () =>  <ContactForm />;

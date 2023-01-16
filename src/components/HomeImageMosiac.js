@@ -1,87 +1,51 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
+import { StyledImage, StyledMainImage } from './styledComponents';
 
 export default function HomeImageMosiac() {
   return (
     <ImageList
       className="d-flex justify-content-center"
-      sx={{ overflowX: "hidden" }}
+      sx={{ overflowX: 'hidden' }}
     >
-      <Box>
+      {/* <Box>
         <ImageListItem>
-          <img
-            src="./ravioli.jpg"
+          <StyledImage
             alt="ravioli"
-            style={{
-              height: "300px",
-              width: "300px",
-              borderRadius: "10px",
-              marginBottom: "5px",
-            }}
+            src="./ravioli.jpg"
+            style={{ marginBottom: '5px' }}
           />
         </ImageListItem>
         <ImageListItem>
-          <img
-            src="./chicken.jpg"
+          <StyledImage
             alt="chicken and carrots"
-            style={{ height: "300px", width: "300px", borderRadius: "10px" }}
+            src="./chicken.jpg"
           />
         </ImageListItem>
-      </Box>
+      </Box> */}
       <ImageListItem>
-        <img
-          src="./MTKClogo.jpg"
+        <StyledMainImage
           alt="MTKC logo"
-          style={{ height: "600px", width: "600px", borderRadius: "10px" }}
+          src="./MTKClogo.png"
         />
       </ImageListItem>
-      <Box>
+      {/* <Box>
         <ImageListItem>
-          <img
-            src="./riceball.jpg"
+          <StyledImage
             alt="riceballs"
-            style={{
-              height: "300px",
-              width: "300px",
-              borderRadius: "10px",
-              marginBottom: "5px",
-            }}
+            src="./riceball.jpg"
+            style={{ marginBottom: '5px' }}
           />
         </ImageListItem>
         <ImageListItem>
-          <img
-            src="./knots.jpg"
+          <StyledImage
             alt="garlic knots"
-            style={{ height: "300px", width: "300px", borderRadius: "10px" }}
+            src="./knots.jpg"
           />
         </ImageListItem>
-      </Box>
+      </Box> */}
     </ImageList>
   );
 }
-
-const itemData = [
-  {
-    img: "./ravioli.jpg",
-    title: "Bed",
-  },
-  {
-    img: "./knots.jpg",
-    title: "Books",
-  },
-  {
-    img: "./MTKClogo.jpg",
-    title: "Kitchen",
-  },
-
-  {
-    img: "./chicken.jpg",
-    title: "Blinds",
-  },
-  {
-    img: "./riceball.jpg",
-    title: "Chairs",
-  },
-];
