@@ -78,7 +78,6 @@ export const StyledSupportLink = styled.a`
 //SOCIALS
 
 export const StyledText = styled.p`
-  margin-top: 1.2rem;
   padding: 0 3rem;
 `;
 

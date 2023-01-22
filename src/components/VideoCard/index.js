@@ -3,6 +3,7 @@ import T from 'prop-types';
 
 import { Card } from '@mui/material';
 import {
+  StyledCard,
   StyledCardContent,
   StyledCardHeader,
   StyledCardMedia,
@@ -31,7 +32,7 @@ export default function VideoCard({
 
   return (
     <VideoContainer $needsMarginTop={needsMarginTop}>
-      <Card sx={{ borderRadius: '1rem', maxWidth: '15.9rem' }}>
+      <StyledCard sx={{ borderRadius: '1rem', maxWidth: '15.9rem' }}>
         <StyledCardHeader disableTypography title={formattedTitle} />
         <ConditionalRender
           Component={(
@@ -59,7 +60,7 @@ export default function VideoCard({
             shouldRender={!pathname.includes('recipes')}
           />
         </StyledCardContent>
-      </Card>
+      </StyledCard>
     </VideoContainer>
   );
 }

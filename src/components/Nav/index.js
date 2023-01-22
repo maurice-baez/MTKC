@@ -10,10 +10,13 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { NavLink, StyledText } from './styledComponents';
+import { NavLink, StyledHamburger, StyledText } from './styledComponents';
+import { alpha, styled } from '@mui/material/styles';
+import InputBase from '@mui/material/InputBase';
+import { SearchBar } from '../Search';
+// import { Search } from '../Search';
 
 const pages = ['About', 'Videos', 'Recipes', 'Contact', 'Support'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Nav = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -35,29 +38,12 @@ const Nav = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="sticky">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Typography
-            component="a"
-            href="/"
-            noWrap
-            sx={{
-              color: 'inherit',
-              display: { md: 'flex', xs: 'none' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              ml: 1,
-              mr: 5,
-              textDecoration: 'none',
-            }}
-            variant="h6"
-          >
-            MTKC
-          </Typography>
 
-          <Box sx={{ display: { md: 'none', xs: 'flex' }, flexGrow: 1 }}>
+          {/* HAMBURGER MENU WITH LINKS ON SMALLER SCREENS */}
+          <StyledHamburger sx={{ display: { md: 'none', xs: 'flex' } }}>
             <IconButton
               aria-controls="menu-appbar"
               aria-haspopup="true"
@@ -97,19 +83,9 @@ const Nav = () => {
                 </MenuItem>
               ))}
             </Menu>
-          </Box>
-          <StyledText
-            component="a"
-            href="/home"
-            noWrap
-            sx={{
-              display: { md: 'none', xs: 'flex' },
-              letterSpacing: '0.3rem',
-            }}
-            variant="h5"
-          >
-            MTKC
-          </StyledText>
+          </StyledHamburger>
+          {/* END HAMBURGER MENU WITH LINKS ON SMALLER SCREENS * */}
+
           <Box sx={{ display: { md: 'flex', xs: 'none' }, flexGrow: 1 }}>
             {pages.map((page) => (
               <NavLink
@@ -123,46 +99,12 @@ const Nav = () => {
               </NavLink>
             ))}
           </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open links">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                {/* <Box
-                  alt="MTKC logo"
-                  component="img"
-                  src="/MTKClogo.jpg"
-                  sx={{ height: 42 }}
-                /> */}
-              </IconButton>
-            </Tooltip>
-            <Menu
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                horizontal: 'right',
-                vertical: 'top',
-              }}
-              id="menu-appbar"
-              keepMounted
-              onClose={handleCloseUserMenu}
-              open={Boolean(anchorElUser)}
-              sx={{ mt: '45px' }}
-              transformOrigin={{
-                horizontal: 'right',
-                vertical: 'top',
-              }}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+          <SearchBar />
           <Box
             alt="MTKC logo"
             component="img"
             src="/MTKClogo.png"
-            sx={{ height: 80 }}
+            sx={{ height: 80, marginLeft: 2 }}
           />
         </Toolbar>
       </Container>

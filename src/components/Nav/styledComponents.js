@@ -1,4 +1,4 @@
-import { Button, Typography } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import styled from 'styled-components';
 
 export const NavLink = styled(Button)`
@@ -14,7 +14,6 @@ export const StyledText = styled(Typography)`
   font-family: 'monospace';
   flex-grow: 1;
   font-weight: 700;
-  letter-spacing: 0.3rem;
   // margin-right: 2rem;
   text-decoration: none;
 
@@ -23,4 +22,8 @@ export const StyledText = styled(Typography)`
     cursor: pointer;
     text-decoration: none;
   }
+`;
+
+export const StyledHamburger = styled(Box)`
+  flex-grow: 1;
 `;

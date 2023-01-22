@@ -1,28 +1,30 @@
 import { Grid } from '@mui/material';
-import React from 'react';
+import React, { Fragment } from 'react';
 import VideoCard from '../components/VideoCard';
 import { videoDictionary } from '../constants/videoDictionary';
 import { StyledGrid } from './styledComponents';
 
-const formattedVideos = Object.entries(videoDictionary).map(([key, value]) => (
+const formattedVideos = videoDictionary.map((video) => (
   <Grid
     item={true}
-    key={key}
+    key={video.name}
     md={4}
     sm={6}
     xs={12}
   >
     <VideoCard
       needsMarginTop={true}
-      src={value}
-      title={key}
+      src={video.src}
+      title={video.name}
     />
   </Grid>
 ),
 );
 
 export const Videos = () => (
-  <StyledGrid container spacing={8}>
-    {formattedVideos}
-  </StyledGrid>
+  <Fragment>
+    <StyledGrid container spacing={8}>
+      {formattedVideos}
+    </StyledGrid>
+  </Fragment>
 );

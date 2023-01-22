@@ -1,5 +1,6 @@
 import {
   Button,
+  Card,
   CardContent,
   CardHeader,
   CardMedia,
@@ -9,22 +10,13 @@ import styled from 'styled-components';
 
 export const StyledCardMedia = styled(CardMedia)`
   border: none;
-  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.15);
   height: 28.4rem;
   max-width: 15.9rem;
   text-align: center;
 `;
 
-export const StyledCard = styled.div`
-  background-color: ${({ theme }) => theme.palette.primary.main};
-  align-items: center;
-  border-radius: 0 0 1.5rem 1.5rem;
-  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
-  display: flex;
-  height: 7rem;
-  justify-content: space-between;
-  padding: 1rem;
-  width: 15.9rem;
+export const StyledCard = styled(Card)`
+  border: 0.5px solid ${({ theme }) => theme.palette.secondary.main};
 `;
 
 export const StyledCardContent = styled(CardContent)`
@@ -42,7 +34,6 @@ export const StyledCardHeader = styled(CardHeader)`
   line-height: 1.7rem;
   text-align: center;
 `;
-
 
 export const StyledLink = styled(Button)`
   width: 7rem;

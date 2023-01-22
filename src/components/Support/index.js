@@ -34,7 +34,7 @@ export const SupportLinks = () => (
           <StyledSupportLink>
             <PayPal />
           </StyledSupportLink>
-          <StyledText>Tips are always appreciated</StyledText>
+          <StyledText>Tips and donations are always appreciated</StyledText>
         </StyledSupportCard>
       </StyledGrid>
       <StyledGrid item={true} sm={4} xs={6}>
