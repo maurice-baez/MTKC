@@ -38,8 +38,9 @@ export const About = () => (
         </ChatBubble>
       </Grid>
 
+      <Grid item={true} xs={6}></Grid>
+
       {/* Dad container */}
-      <Grid item={true} xs={8}></Grid>
       <Grid item={true} xs={4}>
         <TopContainer>
           <IPhoneChatBubble>

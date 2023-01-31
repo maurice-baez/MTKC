@@ -20,7 +20,7 @@ import { videoDictionary } from '../../constants/videoDictionary';
 import { unCamelCase } from '../../helpers/helpers';
 
 export const SearchBar = () => {
-  const [formData, setFormData] = useState('');
+  const [value, setValue] = useState('');
 
   /** Update form input. */
   const handleChange = (evt) => {
@@ -67,20 +67,21 @@ export const SearchBar = () => {
       backgroundColor: alpha('#000', 0.1),
       borderRadius: '10px',
     },
+    flexGrow: 1,
+    marginRight: '2rem',
     padding: '0 2rem 0 2rem',
-    transition: theme.transitions.create('width'),
-    // width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      '&:focus': { width: '80ch' },
-      width: '80ch',
-    },
+    width: '20rem',
   }));
 
   const AutocompleteComponent = () => (
     <StyledAutocomplete
+      clearOnBlur={true}
       getOptionLabel={(option) => option.formattedName}
       groupBy={(option) => option.firstLetter}
       id="grouped-demo"
+      onChange={(evt) => {
+        // console.log((evt.target.innerHTML || evt.target.value));
+      } }
       options={options.sort((a, b) => -b.firstLetter.localeCompare(a.firstLetter))}
       renderGroup={(params) => (
         <li>

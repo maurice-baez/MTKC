@@ -41,9 +41,14 @@ const Nav = () => {
     <AppBar position="sticky">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-
+          <Box
+            alt="MTKC logo"
+            component="img"
+            src="/MTKClogo.png"
+            sx={{ display: { md: 'flex', xs: 'none' }, height: 80, marginRight: 2 }}
+          />
           {/* HAMBURGER MENU WITH LINKS ON SMALLER SCREENS */}
-          <StyledHamburger sx={{ display: { md: 'none', xs: 'flex' } }}>
+          <StyledHamburger sx={{ display: { md: 'none', xs: 'flex' }, height: 80 }}>
             <IconButton
               aria-controls="menu-appbar"
               aria-haspopup="true"
@@ -99,12 +104,14 @@ const Nav = () => {
               </NavLink>
             ))}
           </Box>
-          <SearchBar />
+          <Box>
+            <SearchBar />
+          </Box>
           <Box
             alt="MTKC logo"
             component="img"
             src="/MTKClogo.png"
-            sx={{ height: 80, marginLeft: 2 }}
+            sx={{ display: { md: 'none', xs: 'flex' }, height: 80, marginLeft: 2 }}
           />
         </Toolbar>
       </Container>
